@@ -1,95 +1,192 @@
 import 'package:flutter/material.dart';
-import 'package:matrimony_app/Pages/Home_Screen.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class ProfileSetupScreen extends StatefulWidget {
+  const ProfileSetupScreen({super.key});
+
   @override
   _ProfileSetupScreenState createState() => _ProfileSetupScreenState();
 }
 
 class _ProfileSetupScreenState extends State<ProfileSetupScreen> {
-  String _name = '';
-  int _age = 18;
-  String _gender = '';
-  String _interests = '';
+  DateTime selectedDate = DateTime.now();
 
-  void _submitProfile() {
-    // Implement profile submission logic here
-    print('Name: $_name, Age: $_age, Gender: $_gender, Interests: $_interests');
-
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+        context: context,
+        initialDate: selectedDate,
+        firstDate: DateTime(2015, 8),
+        lastDate: DateTime(2025));
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
   }
+  String dropdownValue = "Gender";
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Setup Profile'),
+        title: const Text('Setup Profile'),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(10.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextField(
-                decoration: InputDecoration(labelText: 'Name'),
-                onChanged: (value) {
-                  setState(() {
-                    _name = value;
-                  });
-                },
+              Text("Hi,my name is",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              const TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your name",
+                  )
               ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(labelText: 'Age'),
-                keyboardType: TextInputType.number,
-                onChanged: (value) {
-                  setState(() {
-                    _age = int.tryParse(value) ?? 18;
-                  });
-                },
+              const SizedBox(height: 20,),
+              Text("I am",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              DropdownMenu(
+                  width:400,
+                  enableFilter: true,
+                  label: const Text("Select Your Gender",),
+                  onSelected: (gender){
+                    if (gender != null){
+                      setState(() {
+                      });
+                    }
+                  },
+                  dropdownMenuEntries:const [
+                    DropdownMenuEntry(value: Icons.female, label: "Female"),
+                    DropdownMenuEntry(value: Icons.male, label: "Male"),
+                    DropdownMenuEntry(value: Icons.no_accounts, label: "Other"),
+                  ]
+              ) ,
+              const SizedBox(height: 20,),
+              Text("My height is",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              DropdownMenu(
+                  width:400,
+                  enableFilter: true,
+                  label: const Text("Choose Your Height"),
+                  onSelected: (gender){
+                    if (gender != null){
+                      setState(() {
+                      });
+                    }
+                  },
+                  dropdownMenuEntries:const [
+                    DropdownMenuEntry(value: Icons.height, label: "5"),
+                    DropdownMenuEntry(value: Icons.height, label: "6"),
+                    DropdownMenuEntry(value: Icons.height, label: "8"),
+                  ]
+
               ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(labelText: 'Gender'),
-                onChanged: (value) {
-                  setState(() {
-                    _gender = value;
-                  });
-                },
+              const SizedBox(height: 20,),
+              Text("I belong to",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              DropdownMenu(
+                  width:400,
+                  enableFilter: true,
+                  label: const Text("Choose Your Caste"),
+                  onSelected: (gender){
+                    if (gender != null){
+                      setState(() {
+                      });
+                    }
+                  },
+                  dropdownMenuEntries:const [
+                    DropdownMenuEntry(value: Icons.height, label: "Yaduvanshi"),
+                    DropdownMenuEntry(value: Icons.height, label: "Rajput"),
+                    DropdownMenuEntry(value: Icons.height, label: "Jaat"),
+                  ]
+
               ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(labelText: 'Interests'),
-                onChanged: (value) {
-                  setState(() {
-                    _interests = value;
-                  });
-                },
+              const SizedBox(height: 20,),
+              Text("I born on",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              const SizedBox(height: 20.0,),
+              Container(
+                height: 40,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    border: Border.all(width: 1)
+                ),
+                child: TextButton(
+                  onPressed: () => _selectDate(context),
+                  child: const Text('Select  your Birthdate',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w500,color: Colors.black),
+                  ),
+                ),
               ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: _submitProfile,
-                child: Text('Submit'),
+              const SizedBox(height: 20,),
+              Text("I am living at",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              const TextField(
+                  decoration: InputDecoration(
+                    hintText: "write your short address",
+                  )
               ),
-              SizedBox(height: 20),
-              TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(
-                          builder: (context) =>HomeScreen ()));
-                },
-                child: Text('Upload Profile Picture'),
+              const SizedBox(height: 40,),
+              Text("Personal Information",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 25)),
+              const SizedBox(height: 30,),
+              Text("I completed/persuing study in",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              DropdownMenu(
+                  width:400,
+                  enableFilter: true,
+                  label: const Text("Select Education Field"),
+                  onSelected: (gender){
+                    if (gender != null){
+                      setState(() {
+                      });
+                    }
+                  },
+                  dropdownMenuEntries:const [
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "B-tech/Be"),
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "BBA"),
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "BCA"),
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "MBA"),
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "MCA"),
+                  ]
               ),
-            ],
-          ),
+              const SizedBox(height: 20,),
+              Text("I am Working as ",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              DropdownMenu(
+                  width:400,
+                  enableFilter: true,
+                  label: const Text("Select your profession"),
+                  onSelected: (gender){
+                    if (gender != null){
+                      setState(() {
+                      });
+                    }
+                  },
+                  dropdownMenuEntries:const [
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "Employee"),
+                    DropdownMenuEntry(value: Icons.cast_for_education, label: "Business"),
+                  ]
+              ),
+              const SizedBox(height: 20,),
+              Text("My montly income",style: GoogleFonts.poppins(fontWeight: FontWeight.w800,fontSize: 15)),
+              const TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your income",
+                  )
+              ),
+              const SizedBox(height: 20,),
+              GestureDetector( onTap: (){},
+                child: Container(
+                  height: 50,
+                  width: double.infinity,
+                  color: Colors.pinkAccent,
+                  child: Center(child: Text("Continue",
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w800,
+                        fontSize: 20,
+                        color:Colors.white),
+                        ),
+                     )
+                  ),
+                )
+               ],
+           ),
         ),
       ),
+
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: ProfileSetupScreen(),
-  ));
 }

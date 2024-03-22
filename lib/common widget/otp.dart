@@ -12,7 +12,6 @@ class OtpForm extends StatelessWidget {
             SizedBox(
               height: 64,
               width: 68,
-
               child: TextField(
                 onChanged: (value){
                   if (value.length == 1){

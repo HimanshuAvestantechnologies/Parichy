@@ -16,7 +16,7 @@ class _ChatScreenState extends State<ChatScreen> {
     child: Scaffold(
     appBar: AppBar(
     elevation: 5,
-    title: Text("Chats "),
+    title: const Text("Chats "),
     ),
     body: Column(
     children: [
@@ -58,7 +58,6 @@ class _ChatScreenState extends State<ChatScreen> {
     );
     }
     }
-
         _acceptedRequested(BuildContext context) {
       return Padding(
         padding: const EdgeInsets.all(8.0),
@@ -73,14 +72,14 @@ class _ChatScreenState extends State<ChatScreen> {
                 onTap: (){
                   Navigator.push(context,
                       MaterialPageRoute(
-                          builder: (context) => ConversationView()));
+                          builder: (context) => const ConversationView()));
                 },
                 child: ListTile(
                   leading: Image.network(
                       "https://media.istockphoto.com/id/1156925412/photo/bearded-man-walking-in-an-urban-street-unique-photo.webp?b=1&s=170667a&w=0&k=20&c=ahWm40c7-glto-wpPJfvC3hsYfgS7RSynCRgtDqSXfQ="), // Display the image on the left side of the ListTile
-                  title: Text(
+                  title: const Text(
                       "Aaditya"), // Display the name as the title of the ListTile
-                  subtitle: Text(
+                  subtitle: const Text(
                       "Loreaum Lipsum"), // Display the description as the subtitle of the ListTile
                 ),
               );
@@ -89,7 +88,6 @@ class _ChatScreenState extends State<ChatScreen> {
     }
 
     _newRequest(BuildContext context) {
-      bool isVisible = true;
       List<String> imageData = [
         "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cHJvZmlsZXxlbnwwfHwwfHx8MA%3D%3D",
         "https://plus.unsplash.com/premium_photo-1675034393381-7e246fc40755?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTd8fHByb2ZpbGV8ZW58MHx8MHx8fDA%3D",
@@ -97,12 +95,12 @@ class _ChatScreenState extends State<ChatScreen> {
       ];
       return Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
+        child: SizedBox(
           height: 300,
           width: double.infinity,
           child: Column(
             children: [
-              Row(
+              const Row(
                 children: [
                   Text('Linda Johnson'),
                   Spacer(),
@@ -113,7 +111,7 @@ class _ChatScreenState extends State<ChatScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text('Catholic Christian'),
@@ -123,7 +121,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       Text("Computer Science"),
                     ],
                   ),
-                  Container(
+                  SizedBox(
                     height: 100,
                     width: MediaQuery.of(context).size.width * .5,
                     child: ListView.builder(
@@ -153,12 +151,12 @@ class _ChatScreenState extends State<ChatScreen> {
                         borderRadius: BorderRadius.circular(4),
                         border: Border.all(width: 1, color: Colors.red),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text('More Info'),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Expanded(
@@ -168,7 +166,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         borderRadius: BorderRadius.circular(4),
                         border: Border.all(width: 1, color: Colors.red),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Accept Request',
                         ),
@@ -192,12 +190,12 @@ class _ChatScreenState extends State<ChatScreen> {
       ];
       return Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
+        child: SizedBox(
           height: 300,
           width: double.infinity,
           child: Column(
             children: [
-              Row(
+              const Row(
                 children: [
                   Text('Linda Johnson'),
                   Spacer(),
@@ -208,7 +206,7 @@ class _ChatScreenState extends State<ChatScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Column(
+                  const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                   Text('Catholic Christian'),
@@ -218,7 +216,7 @@ class _ChatScreenState extends State<ChatScreen> {
                   Text("Computer Science"),
                   ]
                   ),
-                  Container(
+                  SizedBox(
                     height: 100,
                     width: MediaQuery.of(context).size.width * .5,
                     child: ListView.builder(
@@ -248,12 +246,12 @@ class _ChatScreenState extends State<ChatScreen> {
                         borderRadius: BorderRadius.circular(4),
                         border: Border.all(width: 1, color: Colors.red),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text('More Info'),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   Expanded(
@@ -263,7 +261,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         borderRadius: BorderRadius.circular(4),
                         border: Border.all(width: 1, color: Colors.red),
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Pending Request',
                         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:matrimony_app/Auth/SplashScreen.dart';
+import 'package:matrimony_app/Bottom_Bar/Admin_Bottom_tab_view.dart';
 import 'package:matrimony_app/Bottom_Bar/Bottom_tab_view.dart';
 import 'package:matrimony_app/Pages/Account_Screen.dart';
 import 'package:matrimony_app/Account_View/Menu_Screen.dart';
@@ -31,7 +32,8 @@ class MyApp extends StatelessWidget {
      // PurchasePlanScreen()
     //  MenuScreen()
      // BottomView()
-      ViewPage()
+      //ViewPage()
+      AdminBottomTabView()
 
     );
   }

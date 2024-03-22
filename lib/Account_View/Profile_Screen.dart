@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -40,16 +41,34 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ]
                    ),
               ),
-                  const Expanded(child: TabBarView(children: [
-                    Center(child: Text("Account"),),
-                    Center(child: Text("personal"),),
-                    Center(child: Text("Profesional"),),
-                  ]
-                  )
-                  )
+            Expanded(
+              child: TabBarView(
+                children: [
+                        _Account(context),
+                        _Personal(context),
+                        _Profesional(context),
+
+                      ],
+                    ),
+            ),
+
             ]
               )
             ),
     );
   }
 }
+
+
+  _Profesional(BuildContext context){
+
+  }
+
+  _Personal(BuildContext context){
+
+}
+
+  _Account(BuildContext context){
+
+}
+
