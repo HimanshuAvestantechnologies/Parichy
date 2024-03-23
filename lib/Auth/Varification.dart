@@ -14,8 +14,9 @@ class _VerificationState extends State<Verification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Padding(padding: EdgeInsets.symmetric(vertical: 25,horizontal: 25),
+        child: Padding(padding: EdgeInsets.all(30.0),
           child: Column(
               children: [
                 const SizedBox(height: 64,),
@@ -56,6 +57,8 @@ class _VerificationState extends State<Verification> {
                     ),
                   ],
                 ),
+                SizedBox(height: 30,),
+                Image.asset("assets/images/otp.jpg",fit: BoxFit.contain,)
               ]
           ),
 

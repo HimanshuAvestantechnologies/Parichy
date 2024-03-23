@@ -18,11 +18,13 @@ class _PasswordState extends State<Password> {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Column(
+        child: Padding(padding: EdgeInsets.all(20),
+          child:  Column(
+
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children:[
                 Container(
+                  alignment: Alignment.center,
                   child: Center(
                     child: Text("Reset Password",style: GoogleFonts.poppins(
                         fontSize: 25,
@@ -66,13 +68,13 @@ class _PasswordState extends State<Password> {
                     );
                   }, child: Text("Done",style: TextStyle(fontSize: 20, color: Colors.black54),),),
                 ),
-
+                SizedBox(height: 40,),
+                Image.asset("assets/images/Reset.jpg",fit: BoxFit.fitHeight,)
 
               ]
           ),
         ),
       ),
-
     );
   }
 }

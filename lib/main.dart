@@ -32,9 +32,8 @@ class MyApp extends StatelessWidget {
      // PurchasePlanScreen()
     //  MenuScreen()
      // BottomView()
-      //ViewPage()
-      AdminBottomTabView()
-
+      ViewPage()
+    //  AdminBottomTabView ()
     );
   }
 }

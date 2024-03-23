@@ -13,17 +13,17 @@ class _SignInPageState extends State<SignUpPage> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(),
+
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Center(child: Text("Register to",style:GoogleFonts.poppins(fontSize: 25,fontWeight: FontWeight.w600),),
-                ),
-                SizedBox(height: 30,),
-                Image(image: AssetImage("assets/images/lock.jpg"),height: 90,width: 110,),
-                SizedBox(height: 30,),
-                Text("SoulMeet",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 25),),
+
+                Image(image: AssetImage("assets/images/couple image3.jpg")),
+
+                Text("Register",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 25),),
                 SizedBox(height: 40,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -61,19 +61,22 @@ class _SignInPageState extends State<SignUpPage> {
                             borderRadius: BorderRadius.circular(10),
                             color: Colors.pinkAccent
                         ),
-                        child: TextButton(onPressed: (){
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => ProfileSetupScreen()
-                              ));
-                        }, child:Text("Continue",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 15,color: Colors.white)
+                        child: TextButton(onPressed: (){Navigator.push(context,
+                            MaterialPageRoute(
+                            builder: (context) => ProfileSetupScreen()));}, child:Text("Continue",style: GoogleFonts.poppins(fontWeight: FontWeight.w700,fontSize: 15,color: Colors.white)
                         ),
                         ),
                       ),
+
+
+
+
                     ],
                   ),
                 )
+
+
+
               ],
             ),
           ),
